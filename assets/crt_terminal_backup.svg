@@ -1,0 +1,470 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" width="100%" height="100%">
+  <defs>
+    <!-- Ambient Room Gradient (Dark 2 AM Atmosphere) -->
+    <radialGradient id="roomAtmosphere" cx="470" cy="230" r="480" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1b0928" stop-opacity="0.85" />
+      <stop offset="40%" stop-color="#0e0516" stop-opacity="0.65" />
+      <stop offset="75%" stop-color="#06020a" stop-opacity="0.45" />
+      <stop offset="100%" stop-color="#020104" stop-opacity="1" />
+    </radialGradient>
+
+    <!-- Desk Surface Light Falloff from CRT -->
+    <radialGradient id="deskCrtGlow" cx="470" cy="445" rx="420" ry="150" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#3b0f4d" stop-opacity="0.3" />
+      <stop offset="40%" stop-color="#1a0624" stop-opacity="0.16" />
+      <stop offset="75%" stop-color="#08020d" stop-opacity="0.04" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- OLED Screen Local Light Glow -->
+    <radialGradient id="oledGlowWash" cx="195" cy="510" rx="55" ry="35" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#f72585" stop-opacity="0.25" />
+      <stop offset="60%" stop-color="#7209b7" stop-opacity="0.06" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- CRT Outer Plastic (Realistic Matte Charcoal/Grey) -->
+    <linearGradient id="crtPlasticBezel" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#26282f" />
+      <stop offset="2%" stop-color="#1e2025" />
+      <stop offset="85%" stop-color="#141519" />
+      <stop offset="100%" stop-color="#0c0d10" />
+    </linearGradient>
+
+    <!-- CRT Inner Recessed Bezel (Shadowed Chamber) -->
+    <linearGradient id="crtInnerShadow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070709" />
+      <stop offset="35%" stop-color="#0e0f12" />
+      <stop offset="100%" stop-color="#16181e" />
+    </linearGradient>
+
+    <!-- CRT Phosphor Screen Background -->
+    <radialGradient id="phosphorBg" cx="50%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#150624" />
+      <stop offset="60%" stop-color="#0b0214" />
+      <stop offset="100%" stop-color="#040108" />
+    </radialGradient>
+
+    <!-- Subtle Bloom Filter for CRT Text -->
+    <filter id="crtBloom" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2.2" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="oledBloom" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="1.8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- CRT Scanlines -->
+    <pattern id="scanlines" width="100" height="4" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="100" y2="0" stroke="#f72585" stroke-width="0.5" stroke-opacity="0.07" />
+    </pattern>
+
+    <style>
+      @keyframes cursorBlink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+      @keyframes roboBlink {
+        0%, 86%, 100% { transform: scaleY(1); }
+        92% { transform: scaleY(0.08); }
+      }
+      @keyframes roboGlance {
+        0%, 35%, 100% { transform: translate(0px, 0px); }
+        45%, 65% { transform: translate(3px, 0px); }
+        75%, 90% { transform: translate(-3px, 0px); }
+      }
+      @keyframes pwrLed {
+        0%, 100% { opacity: 0.65; }
+        50% { opacity: 0.95; filter: drop-shadow(0 0 3px #f72585); }
+      }
+      @keyframes espLed {
+        0%, 92%, 100% { opacity: 0.9; }
+        95% { opacity: 0.1; }
+      }
+
+      .term-cursor { animation: cursorBlink 1s infinite; }
+      .robo-eye-l {
+        transform-origin: 191px 512px;
+        animation: roboBlink 4s infinite, roboGlance 7.5s infinite ease-in-out;
+      }
+      .robo-eye-r {
+        transform-origin: 209px 512px;
+        animation: roboBlink 4s infinite, roboGlance 7.5s infinite ease-in-out;
+      }
+      .crt-pwr-led { animation: pwrLed 2.5s infinite ease-in-out; }
+      .esp-status-led { animation: espLed 2s infinite ease-in-out; }
+
+      .font-mono { font-family: "JetBrains Mono", "Courier New", ui-monospace, Consolas, monospace; }
+      .font-sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    </style>
+  </defs>
+
+  <!-- ================================================================= -->
+  <!-- 1. DARK 2 AM ROOM & DESK ENVIRONMENT -->
+  <!-- ================================================================= -->
+  <!-- Deep Room Shadow -->
+  <rect width="960" height="640" fill="#020104" rx="14" />
+  <rect width="960" height="640" fill="url(#roomAtmosphere)" rx="14" />
+
+  <!-- Wooden Desk Surface -->
+  <path d="M 0 435 L 960 435 L 960 640 L 0 640 Z" fill="#070609" />
+  <line x1="0" y1="435" x2="960" y2="435" stroke="#131218" stroke-width="1.5" />
+
+  <!-- CRT Screen Light Falloff onto Desk Surface -->
+  <rect x="0" y="435" width="960" height="200" fill="url(#deskCrtGlow)" />
+
+  <!-- OLED Local Wash on Left-Center Desk -->
+  <rect x="140" y="470" width="120" height="90" fill="url(#oledGlowWash)" />
+
+  <!-- Contact Shadows Under CRT Base & Hardware -->
+  <ellipse cx="470" cy="448" rx="290" ry="16" fill="#000000" fill-opacity="0.85" />
+  <ellipse cx="470" cy="446" rx="210" ry="10" fill="#000000" fill-opacity="0.95" />
+
+  <!-- ================================================================= -->
+  <!-- 2. HARDWARE (LEFT SIDE): BREADBOARD + DISTINCT OLED (ROBOEYES) -->
+  <!-- ================================================================= -->
+
+  <!-- A. ESP32 on Mini Breadboard (Positioned Far Left) -->
+  <g transform="translate(42, 468) rotate(-3)">
+    <!-- Breadboard Contact Shadow -->
+    <rect x="2" y="3" width="92" height="72" rx="3" fill="#000000" fill-opacity="0.6" />
+    
+    <!-- Mini White Breadboard -->
+    <rect x="0" y="0" width="88" height="68" rx="2.5" fill="#dad7d3" stroke="#a39f99" stroke-width="0.8" />
+    
+    <!-- Grid of Holes -->
+    <g fill="#242220" opacity="0.32">
+      <circle cx="8" cy="10" r="0.8" /><circle cx="14" cy="10" r="0.8" /><circle cx="20" cy="10" r="0.8" />
+      <circle cx="8" cy="16" r="0.8" /><circle cx="14" cy="16" r="0.8" /><circle cx="20" cy="16" r="0.8" />
+      <circle cx="8" cy="22" r="0.8" /><circle cx="14" cy="22" r="0.8" /><circle cx="20" cy="22" r="0.8" />
+      <circle cx="8" cy="46" r="0.8" /><circle cx="14" cy="46" r="0.8" /><circle cx="20" cy="46" r="0.8" />
+      <circle cx="8" cy="52" r="0.8" /><circle cx="14" cy="52" r="0.8" /><circle cx="20" cy="52" r="0.8" />
+      <circle cx="8" cy="58" r="0.8" /><circle cx="14" cy="58" r="0.8" /><circle cx="20" cy="58" r="0.8" />
+    </g>
+
+    <!-- ESP32 NodeMCU Module seated on Breadboard -->
+    <rect x="32" y="10" width="48" height="48" rx="2" fill="#111316" stroke="#252830" stroke-width="0.8" />
+    <!-- ESP32 Metal RF Shield -->
+    <rect x="39" y="15" width="28" height="28" rx="1.5" fill="#676b74" stroke="#3d4047" stroke-width="0.7" />
+    <text x="42" y="27" fill="#16171b" font-size="4.8" font-weight="700" class="font-mono">ESP32</text>
+    <text x="42" y="35" fill="#16171b" font-size="3.5" class="font-mono">WROOM-32</text>
+    <!-- PCB Antenna Trace -->
+    <path d="M 68 16 L 74 16 L 74 20 L 70 20 L 70 24 L 74 24 L 74 28" fill="none" stroke="#c59f2a" stroke-width="0.6" />
+    <!-- Blinking Status LED on ESP32 -->
+    <circle cx="36" cy="15" r="1.1" fill="#f72585" class="esp-status-led" />
+
+    <!-- Black USB Cable trailing to computer -->
+    <path d="M 32 34 Q 10 36 -15 25 Q -40 15 -70 -25" fill="none" stroke="#121418" stroke-width="2.5" stroke-linecap="round" />
+  </g>
+
+  <!-- Jumper Wires bridging ESP32 Breadboard to Separate OLED -->
+  <g fill="none" stroke-width="1.3" stroke-linecap="round">
+    <path d="M 128 482 Q 146 454 160 492" stroke="#d90429" /> <!-- VCC Red -->
+    <path d="M 130 486 Q 148 460 162 495" stroke="#1d3557" /> <!-- GND Blue/Black -->
+    <path d="M 132 490 Q 150 466 164 498" stroke="#ffb703" /> <!-- SCL Yellow -->
+    <path d="M 134 494 Q 152 472 166 501" stroke="#2a9d8f" /> <!-- SDA Green -->
+  </g>
+
+  <!-- B. Separate 0.96" I2C OLED Display Module (RoboEyes) - Clearly Distinct & Non-Overlapping -->
+  <g transform="translate(160, 480) rotate(5)">
+    <!-- OLED Module Shadow -->
+    <rect x="2" y="3" width="66" height="48" rx="3.5" fill="#000000" fill-opacity="0.65" />
+    
+    <!-- Small DIY Acrylic Mount / Enclosure -->
+    <rect x="0" y="0" width="62" height="44" rx="3" fill="#121317" stroke="#262832" stroke-width="1" />
+    <!-- 4 Module Mounting Screws -->
+    <circle cx="4" cy="4" r="0.9" fill="#4a4f5e" /><circle cx="58" cy="4" r="0.9" fill="#4a4f5e" />
+    <circle cx="4" cy="40" r="0.9" fill="#4a4f5e" /><circle cx="58" cy="40" r="0.9" fill="#4a4f5e" />
+
+    <!-- 0.96" OLED Screen Bezel -->
+    <rect x="8" y="7" width="46" height="25" rx="2" fill="#07020c" stroke="#1e0c29" stroke-width="0.8" />
+    
+    <!-- The Classic RoboEyes (Smoothly Blinking on separate physical OLED) -->
+    <rect class="robo-eye-l" x="16" y="12" width="10" height="14" rx="2.8" fill="#f72585" filter="url(#oledBloom)" />
+    <rect class="robo-eye-r" x="34" y="12" width="10" height="14" rx="2.8" fill="#f72585" filter="url(#oledBloom)" />
+
+    <!-- OLED Module Label -->
+    <text x="31" y="38" fill="#58416d" font-size="4.5" font-weight="700" text-anchor="middle" class="font-mono">robo_eyes.i2c</text>
+  </g>
+
+  <!-- ================================================================= -->
+  <!-- 3. CENTER: REALISTIC MECHANICAL KEYBOARD (NATURAL DESK POSITION) -->
+  <!-- ================================================================= -->
+  <g transform="translate(255, 468) rotate(-0.3)">
+    <!-- Keyboard Drop Shadow -->
+    <path d="M 6 4 L 466 4 L 478 88 L -8 88 Z" fill="#000000" fill-opacity="0.75" />
+    
+    <!-- Heavy Matte Charcoal Plastic Housing -->
+    <path d="M 8 0 L 462 0 L 474 82 L -6 82 Z" fill="#121317" stroke="#22242c" stroke-width="1.3" />
+    
+    <!-- Top Rim Ambient Screen Sheen -->
+    <line x1="9" y1="1" x2="461" y2="1" stroke="#f72585" stroke-width="0.7" stroke-opacity="0.25" />
+    <line x1="8" y1="2" x2="462" y2="2" stroke="#b5179e" stroke-width="0.5" stroke-opacity="0.12" />
+
+    <!-- Standard QWERTY Keycaps Grid (Stepped 3D Profiles) -->
+    <!-- Function Row -->
+    <g fill="#16171d" stroke="#272932" stroke-width="0.6">
+      <rect x="8" y="7" width="16" height="8" rx="1.2" /><rect x="27" y="7" width="16" height="8" rx="1.2" /><rect x="46" y="7" width="16" height="8" rx="1.2" />
+      <rect x="72" y="7" width="16" height="8" rx="1.2" /><rect x="91" y="7" width="16" height="8" rx="1.2" /><rect x="110" y="7" width="16" height="8" rx="1.2" />
+      <rect x="136" y="7" width="16" height="8" rx="1.2" /><rect x="155" y="7" width="16" height="8" rx="1.2" /><rect x="174" y="7" width="16" height="8" rx="1.2" />
+      <rect x="200" y="7" width="16" height="8" rx="1.2" /><rect x="219" y="7" width="16" height="8" rx="1.2" /><rect x="238" y="7" width="16" height="8" rx="1.2" />
+    </g>
+
+    <!-- Number Row:  1 2 3 4 5 6 7 8 9 0 - = Backspace -->
+    <g fill="#181a21" stroke="#2a2c36" stroke-width="0.6">
+      <rect x="8" y="18" width="18" height="11" rx="1.5" /><rect x="29" y="18" width="18" height="11" rx="1.5" /><rect x="50" y="18" width="18" height="11" rx="1.5" />
+      <rect x="71" y="18" width="18" height="11" rx="1.5" /><rect x="92" y="18" width="18" height="11" rx="1.5" /><rect x="113" y="18" width="18" height="11" rx="1.5" />
+      <rect x="134" y="18" width="18" height="11" rx="1.5" /><rect x="155" y="18" width="18" height="11" rx="1.5" /><rect x="176" y="18" width="18" height="11" rx="1.5" />
+      <rect x="197" y="18" width="18" height="11" rx="1.5" /><rect x="218" y="18" width="18" height="11" rx="1.5" /><rect x="239" y="18" width="18" height="11" rx="1.5" />
+      <rect x="260" y="18" width="18" height="11" rx="1.5" /><rect x="281" y="18" width="28" height="11" rx="1.5" />
+    </g>
+
+    <!-- Tab + QWERTY Row -->
+    <g fill="#181a21" stroke="#2a2c36" stroke-width="0.6">
+      <rect x="8" y="31" width="24" height="12" rx="1.5" />
+      <rect x="35" y="31" width="18" height="12" rx="1.5" /><rect x="56" y="31" width="18" height="12" rx="1.5" /><rect x="77" y="31" width="18" height="12" rx="1.5" />
+      <rect x="98" y="31" width="18" height="12" rx="1.5" /><rect x="119" y="31" width="18" height="12" rx="1.5" /><rect x="140" y="31" width="18" height="12" rx="1.5" />
+      <rect x="161" y="31" width="18" height="12" rx="1.5" /><rect x="182" y="31" width="18" height="12" rx="1.5" /><rect x="203" y="31" width="18" height="12" rx="1.5" />
+      <rect x="224" y="31" width="18" height="12" rx="1.5" /><rect x="245" y="31" width="18" height="12" rx="1.5" /><rect x="266" y="31" width="18" height="12" rx="1.5" />
+      <rect x="287" y="31" width="22" height="12" rx="1.5" />
+    </g>
+
+    <!-- Caps + ASDF Row -->
+    <g fill="#181a21" stroke="#2a2c36" stroke-width="0.6">
+      <rect x="8" y="45" width="28" height="12" rx="1.5" />
+      <rect x="39" y="45" width="18" height="12" rx="1.5" /><rect x="60" y="45" width="18" height="12" rx="1.5" /><rect x="81" y="45" width="18" height="12" rx="1.5" />
+      <rect x="102" y="45" width="18" height="12" rx="1.5" /><rect x="123" y="45" width="18" height="12" rx="1.5" /><rect x="144" y="45" width="18" height="12" rx="1.5" />
+      <rect x="165" y="45" width="18" height="12" rx="1.5" /><rect x="186" y="45" width="18" height="12" rx="1.5" /><rect x="207" y="45" width="18" height="12" rx="1.5" />
+      <rect x="228" y="45" width="18" height="12" rx="1.5" /><rect x="249" y="45" width="18" height="12" rx="1.5" />
+      <!-- Return Key (Subtle Plum/Magenta Accent) -->
+      <rect x="270" y="45" width="39" height="23" rx="1.5" fill="#321235" stroke="#5c1d62" />
+      <text x="280" y="58" fill="#e0aaff" font-size="5.5" font-weight="700" class="font-mono">ENTER</text>
+    </g>
+
+    <!-- Shift + ZXCV Row & Spacebar -->
+    <g fill="#181a21" stroke="#2a2c36" stroke-width="0.6">
+      <rect x="8" y="59" width="36" height="12" rx="1.5" />
+      <rect x="47" y="59" width="18" height="12" rx="1.5" /><rect x="68" y="59" width="18" height="12" rx="1.5" /><rect x="89" y="59" width="18" height="12" rx="1.5" />
+      <rect x="110" y="59" width="18" height="12" rx="1.5" /><rect x="131" y="59" width="18" height="12" rx="1.5" /><rect x="152" y="59" width="18" height="12" rx="1.5" />
+      <rect x="173" y="59" width="18" height="12" rx="1.5" /><rect x="194" y="59" width="18" height="12" rx="1.5" /><rect x="215" y="59" width="18" height="12" rx="1.5" />
+      <rect x="236" y="59" width="31" height="12" rx="1.5" />
+      
+      <!-- Spacebar -->
+      <rect x="90" y="73" width="155" height="9" rx="1.5" fill="#1c1d24" stroke="#30333e" />
+    </g>
+
+    <!-- Nav Cluster (Arrows & Insert/Delete) -->
+    <g fill="#181a21" stroke="#2a2c36" stroke-width="0.6" transform="translate(325, 18)">
+      <rect x="0" y="0" width="16" height="11" rx="1.2" /><rect x="20" y="0" width="16" height="11" rx="1.2" /><rect x="40" y="0" width="16" height="11" rx="1.2" />
+      <rect x="0" y="13" width="16" height="11" rx="1.2" /><rect x="20" y="13" width="16" height="11" rx="1.2" /><rect x="40" y="13" width="16" height="11" rx="1.2" />
+      
+      <!-- Arrow Keys -->
+      <rect x="20" y="41" width="16" height="11" rx="1.2" />
+      <rect x="0" y="54" width="16" height="11" rx="1.2" /><rect x="20" y="54" width="16" height="11" rx="1.2" /><rect x="40" y="54" width="16" height="11" rx="1.2" />
+    </g>
+
+    <!-- Keyboard Cable trailing behind -->
+    <path d="M 235 0 Q 235 -18 290 -22" fill="none" stroke="#101115" stroke-width="2.6" stroke-linecap="round" />
+  </g>
+
+  <!-- ================================================================= -->
+  <!-- 4. RIGHT: REALISTIC MOUSEPAD & VINTAGE COMPUTER MOUSE -->
+  <!-- ================================================================= -->
+  <!-- A. Mousepad (Immediately Right of Keyboard) -->
+  <g transform="translate(740, 460) rotate(-1)">
+    <!-- Mousepad Shadow -->
+    <rect x="2" y="3" width="112" height="126" rx="7" fill="#000000" fill-opacity="0.6" />
+    <!-- Dark Matte Rubber Mousepad -->
+    <rect x="0" y="0" width="110" height="122" rx="6" fill="#101115" stroke="#22242c" stroke-width="1.2" />
+    <!-- Subtle Stitched Border Texture -->
+    <rect x="3" y="3" width="104" height="116" rx="4" fill="none" stroke="#181a20" stroke-width="0.8" stroke-dasharray="3 2" />
+
+    <!-- B. Vintage Computer Mouse resting cleanly on the Mousepad -->
+    <g transform="translate(30, 20) rotate(-3)">
+      <!-- Mouse Contact Shadow on Mousepad -->
+      <ellipse cx="24" cy="44" rx="24" ry="38" fill="#000000" fill-opacity="0.55" />
+      
+      <!-- Ergonomic Charcoal Mouse Shell -->
+      <path d="M 10 8 C 10 0 38 0 38 8 L 42 50 C 42 70 6 70 6 50 Z" fill="#15161b" stroke="#292b34" stroke-width="1.2" />
+      
+      <!-- Button Split Seams -->
+      <line x1="24" y1="2" x2="24" y2="26" stroke="#0b0c0f" stroke-width="0.9" />
+      <line x1="10" y1="26" x2="38" y2="26" stroke="#0b0c0f" stroke-width="0.9" />
+      
+      <!-- Rubber Scroll Wheel -->
+      <rect x="21" y="10" width="6" height="11" rx="1.8" fill="#090a0d" stroke="#333642" stroke-width="0.7" />
+      
+      <!-- Ambient Screen Light Glint on Left Edge of Mouse -->
+      <path d="M 10 10 C 8 26 8 46 12 58" fill="none" stroke="#f72585" stroke-width="0.6" stroke-opacity="0.22" />
+      
+      <!-- Mouse Cable trailing back behind monitor -->
+      <path d="M 24 2 Q 24 -18 -10 -24 Q -45 -30 -80 -45" fill="none" stroke="#0d0e12" stroke-width="2.2" stroke-linecap="round" />
+    </g>
+  </g>
+
+  <!-- ================================================================= -->
+  <!-- 5. RIGHT SIDE OF DESK: PHYSICAL HANDWRITTEN PAPER NOTEPAD -->
+  <!-- (Sitting completely outside CRT footprint on the right desk) -->
+  <!-- ================================================================= -->
+  <g transform="translate(828, 385) rotate(-3.5)">
+    <!-- Notepad Drop Shadow on Desk -->
+    <rect x="2" y="3" width="108" height="74" rx="2" fill="#000000" fill-opacity="0.55" />
+    
+    <!-- Real Paper Index Card / Notepad (Warm Off-White/Linen) -->
+    <rect x="0" y="0" width="106" height="72" rx="2" fill="#e8dfce" stroke="#cfc4b0" stroke-width="0.8" />
+    <!-- Ruled Header & Note Lines -->
+    <line x1="0" y1="14" x2="106" y2="14" stroke="#d98282" stroke-width="0.7" stroke-opacity="0.7" />
+    <line x1="0" y1="28" x2="106" y2="28" stroke="#9bb1cf" stroke-width="0.5" stroke-opacity="0.5" />
+    <line x1="0" y1="42" x2="106" y2="42" stroke="#9bb1cf" stroke-width="0.5" stroke-opacity="0.5" />
+    <line x1="0" y1="56" x2="106" y2="56" stroke="#9bb1cf" stroke-width="0.5" stroke-opacity="0.5" />
+
+    <!-- Handwritten Student Development Notes -->
+    <g fill="#28231a" font-size="5.8" font-weight="700" class="font-mono">
+      <text x="7" y="10">NOTES // 2:30 AM</text>
+      <text x="7" y="24" font-weight="500">- flash esp32 firmware (ble)</text>
+      <text x="7" y="38" font-weight="500">- test ToF laser ranging</text>
+      <text x="7" y="52" font-weight="500">- check dark-zones api route</text>
+      <text x="7" y="66" font-weight="600" fill="#7a3b3b">- sleep ?</text>
+    </g>
+
+    <!-- Translucent Scotch Tape on Top Corner -->
+    <rect x="80" y="-5" width="22" height="8" rx="1" fill="#ffffff" fill-opacity="0.4" transform="rotate(12 91 -1)" />
+  </g>
+
+  <!-- ================================================================= -->
+  <!-- 6. RETRO CRT COMPUTER (PHYSICAL 3D BEZEL, TEXTURE, BUTTONS) -->
+  <!-- ================================================================= -->
+
+  <!-- CRT Monitor Stand Base -->
+  <path d="M 360 426 L 580 426 L 600 450 L 340 450 Z" fill="#101114" stroke="#1f2127" stroke-width="1.2" />
+  <ellipse cx="470" cy="426" rx="90" ry="10" fill="#16171d" stroke="#262831" stroke-width="1" />
+
+  <!-- Outer Bulky CRT Casing (Dark Matte Charcoal) -->
+  <rect x="140" y="24" width="660" height="404" rx="24" fill="url(#crtPlasticBezel)" stroke="#272931" stroke-width="1.8" />
+
+  <!-- Top Plastic Air Cooling Slots -->
+  <g stroke="#0a0b0e" stroke-width="2" stroke-linecap="round">
+    <line x1="280" y1="33" x2="660" y2="33" />
+    <line x1="300" y1="38" x2="640" y2="38" />
+  </g>
+
+  <!-- Monitor Brand Stamp -->
+  <text x="175" y="410" fill="#3c404c" font-size="8" font-weight="800" class="font-mono">MULTISYNC // CRT</text>
+
+  <!-- Dials & Power Switch on Bottom-Right Bezel -->
+  <g transform="translate(670, 400)">
+    <circle cx="10" cy="8" r="4" fill="#131417" stroke="#24262f" stroke-width="0.8" />
+    <line x1="10" y1="5" x2="10" y2="8" stroke="#454a57" stroke-width="1" />
+    
+    <circle cx="24" cy="8" r="4" fill="#131417" stroke="#24262f" stroke-width="0.8" />
+    <line x1="24" y1="5" x2="24" y2="8" stroke="#454a57" stroke-width="1" />
+
+    <!-- Power Rocker Switch -->
+    <rect x="38" y="3" width="13" height="10" rx="1.5" fill="#101114" stroke="#24262f" stroke-width="0.8" />
+    <!-- Power LED -->
+    <circle cx="62" cy="8" r="2.5" fill="#f72585" class="crt-pwr-led" />
+  </g>
+
+  <!-- Recessed Inner Bezel Cavity (Curved Shadow) -->
+  <rect x="160" y="48" width="620" height="336" rx="16" fill="url(#crtInnerShadow)" stroke="#08090b" stroke-width="2" />
+
+  <!-- ================================================================= -->
+  <!-- 7. CRT SCREEN PHOSPHOR GLASS & REAL REVA PROFILE CONTENT -->
+  <!-- ================================================================= -->
+  
+  <!-- Curved Phosphor Screen Surface -->
+  <rect x="170" y="58" width="600" height="316" rx="10" fill="url(#phosphorBg)" stroke="#1a072b" stroke-width="1" />
+  
+  <!-- Phosphor Scanline Texture -->
+  <rect x="170" y="58" width="600" height="316" rx="10" fill="url(#scanlines)" />
+
+  <!-- Natural Screen Glass Glare Highlights -->
+  <path d="M 180 68 Q 470 58 760 68 Q 470 78 180 68 Z" fill="#ffffff" fill-opacity="0.035" />
+  <path d="M 178 68 Q 172 210 178 355 Q 186 210 178 68 Z" fill="#ffffff" fill-opacity="0.025" />
+
+  <!-- ================================================================= -->
+  <!-- 8. AUTHENTIC TERMINAL CONTENT: REVA HATTEKAR & 4 ORIGINAL PROJECTS -->
+  <!-- ================================================================= -->
+  
+  <!-- Terminal Window Title Bar inside CRT -->
+  <g transform="translate(182, 70)">
+    <rect x="0" y="0" width="576" height="17" rx="3" fill="#150723" stroke="#2e1046" stroke-width="0.8" />
+    <circle cx="9" cy="8.5" r="2.2" fill="#f72585" />
+    <circle cx="16" cy="8.5" r="2.2" fill="#b5179e" />
+    <circle cx="23" cy="8.5" r="2.2" fill="#7209b7" />
+    <text x="34" y="12" fill="#c77dff" font-size="8" font-weight="700" class="font-mono">reva@workspace: ~ (zsh) — 2:48 AM</text>
+  </g>
+
+  <!-- Main Terminal Text -->
+  <g transform="translate(192, 102)">
+
+    <!-- Prompt command -->
+    <text x="0" y="8" fill="#f72585" font-size="9.5" font-weight="700" class="font-mono">reva@workspace:~$</text>
+    <text x="120" y="8" fill="#fdfbfe" font-size="9.5" class="font-mono">cat README.md</text>
+
+    <!-- Header Block: Real Name & Bio -->
+    <g transform="translate(0, 24)">
+      <text x="0" y="16" fill="#ffffff" font-size="22" font-weight="900" letter-spacing="-0.5" class="font-mono" filter="url(#crtBloom)">REVA HATTEKAR</text>
+      <text x="180" y="14" fill="#e0aaff" font-size="10.5" font-weight="600" class="font-mono">student // developer // builder</text>
+      <text x="0" y="32" fill="#b69fc9" font-size="9.5" class="font-mono">building things, learning things, and occasionally breaking things.</text>
+    </g>
+
+    <!-- Divider Line -->
+    <line x1="0" y1="66" x2="556" y2="66" stroke="#30134a" stroke-width="0.8" stroke-dasharray="3 3" />
+
+    <!-- SECTION: // TECH STACK -->
+    <g transform="translate(0, 80)">
+      <text x="0" y="0" fill="#f72585" font-size="9.5" font-weight="800" class="font-mono">// TECH STACK</text>
+
+      <g transform="translate(0, 13)" font-size="9" class="font-mono">
+        <text x="0" y="0" fill="#755691" font-weight="700">LANGUAGES :</text>
+        <text x="88" y="0" fill="#eae1f2"><tspan fill="#f72585">Python</tspan> · <tspan fill="#e0aaff">C / C++</tspan> · <tspan fill="#eae1f2">Java</tspan> · <tspan fill="#eae1f2">Dart</tspan> · <tspan fill="#eae1f2">SQL</tspan></text>
+
+        <text x="0" y="14" fill="#755691" font-weight="700">HARDWARE  :</text>
+        <text x="88" y="14" fill="#eae1f2"><tspan fill="#f72585">ESP32</tspan> · <tspan fill="#e0aaff">Raspberry Pi</tspan> · <tspan fill="#eae1f2">Arduino</tspan> · <tspan fill="#9674b8">Sensors &amp; BLE</tspan></text>
+
+        <text x="0" y="28" fill="#755691" font-weight="700">ML / VISION:</text>
+        <text x="88" y="28" fill="#eae1f2"><tspan fill="#f72585">TensorFlow Lite</tspan> · <tspan fill="#e0aaff">Google ML Kit</tspan> · <tspan fill="#9674b8">MobileNetV2</tspan></text>
+
+        <text x="0" y="42" fill="#755691" font-weight="700">APP / WEB :</text>
+        <text x="88" y="42" fill="#eae1f2"><tspan fill="#f72585">Flutter</tspan> · <tspan fill="#e0aaff">React</tspan> · <tspan fill="#eae1f2">Node.js</tspan> · <tspan fill="#eae1f2">Firebase</tspan> · <tspan fill="#9674b8">Linux</tspan></text>
+      </g>
+    </g>
+
+    <!-- Divider Line -->
+    <line x1="0" y1="146" x2="556" y2="146" stroke="#30134a" stroke-width="0.8" stroke-dasharray="3 3" />
+
+    <!-- SECTION: // 4 ORIGINAL CORE PROJECTS -->
+    <g transform="translate(0, 160)">
+      <text x="0" y="0" fill="#e0aaff" font-size="9.5" font-weight="800" class="font-mono">// PROJECTS</text>
+
+      <g transform="translate(0, 13)" font-size="8.8" class="font-mono">
+        <text x="0" y="0" fill="#ff70a6">⚡ Glance     :</text>
+        <text x="92" y="0" fill="#bea9d4">smart-glasses ML detection + ESP32 ToF laser node</text>
+
+        <text x="0" y="13" fill="#ff70a6">🤖 Desk Robot :</text>
+        <text x="92" y="13" fill="#bea9d4">interactive companion w/ real-time expressive OLED eyes</text>
+
+        <text x="0" y="26" fill="#ff70a6">🪞 Smart Mirror:</text>
+        <text x="92" y="26" fill="#bea9d4">Linux vision HUD display <tspan fill="#f72585">[Top 20 IIT-B Techfest]</tspan></text>
+
+        <text x="0" y="39" fill="#ff70a6">🗺️ TARA (GIS) :</text>
+        <text x="92" y="39" fill="#bea9d4">dynamic urban safety engine &amp; dark-zone routing</text>
+      </g>
+    </g>
+
+    <!-- Bottom Status Line & Blinking Cursor -->
+    <g transform="translate(0, 240)">
+      <text x="0" y="0" fill="#f72585" font-size="9.5" font-weight="700" class="font-mono">reva@workspace:~$</text>
+      <text x="120" y="0" fill="#ede4f7" font-size="9" class="font-mono">building · experimenting · learning</text>
+      <rect x="335" y="-8" width="5.5" height="11" fill="#f72585" class="term-cursor" />
+    </g>
+
+  </g>
+
+</svg>

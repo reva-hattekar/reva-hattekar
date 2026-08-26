@@ -1,0 +1,115 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 260" width="100%" height="100%">
+  <defs>
+    <style>
+      @keyframes eyeBlink {
+        0%, 88%, 100% { transform: scaleY(1); }
+        93% { transform: scaleY(0.08); }
+      }
+      @keyframes eyeGlance {
+        0%, 35%, 100% { transform: translate(0px, 0px); }
+        45%, 65% { transform: translate(3px, 0px); }
+        75%, 90% { transform: translate(-3px, 0px); }
+      }
+      @keyframes pulse {
+        0%, 100% { opacity: 0.6; }
+        50% { opacity: 1; }
+      }
+
+      .robo-eye-l {
+        transform-origin: 121px 31px;
+        animation: eyeBlink 4s infinite, eyeGlance 7s infinite ease-in-out;
+      }
+      .robo-eye-r {
+        transform-origin: 137px 31px;
+        animation: eyeBlink 4s infinite, eyeGlance 7s infinite ease-in-out;
+      }
+      .status-pulse {
+        animation: pulse 2.2s infinite ease-in-out;
+      }
+
+      .font-sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+      .font-mono { font-family: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+    </style>
+  </defs>
+
+  <!-- Single Rectangular Card Background (Warm Charcoal) -->
+  <rect x="1.5" y="1.5" width="677" height="257" rx="12" fill="#13161c" stroke="#222834" stroke-width="1.5" />
+
+  <!-- ================================================================= -->
+  <!-- TOP ROW: NAME + SUBTLE ROBOEYES + TITLE + STATUS -->
+  <!-- ================================================================= -->
+  <g transform="translate(28, 24)">
+    
+    <!-- Name -->
+    <text x="0" y="24" fill="#f4f1ea" font-size="24" font-weight="800" class="font-sans">Reva</text>
+
+    <!-- Subtle Integrated RoboEyes (Small Micro-OLED beside name) -->
+    <g transform="translate(70, 6)">
+      <rect x="0" y="0" width="48" height="25" rx="5" fill="#090b0f" stroke="#202736" stroke-width="1" />
+      <rect class="robo-eye-l" x="11" y="7" width="9" height="11" rx="2.5" fill="#4dabf7" />
+      <rect class="robo-eye-r" x="27" y="7" width="9" height="11" rx="2.5" fill="#4dabf7" />
+    </g>
+
+    <!-- Subtitle -->
+    <text x="130" y="23" fill="#e88938" font-size="12" font-weight="600" class="font-mono">student · developer · builder</text>
+
+    <!-- Status Badge (Top-Right) -->
+    <g transform="translate(510, 8)">
+      <circle cx="6" cy="7" r="3" fill="#51cf66" class="status-pulse" />
+      <text x="14" y="10" fill="#8ce99a" font-size="10.5" font-weight="600" class="font-mono">in the workshop</text>
+    </g>
+
+    <!-- Brief Sub-line -->
+    <text x="0" y="46" fill="#8b95a5" font-size="11.5" class="font-sans">Building embedded hardware, on-device ML, and software experiments.</text>
+  </g>
+
+  <!-- Divider 1 -->
+  <line x1="28" y1="84" x2="652" y2="84" stroke="#1c222e" stroke-width="1" />
+
+  <!-- ================================================================= -->
+  <!-- MIDDLE SECTION: CURATED CORE STACK -->
+  <!-- ================================================================= -->
+  <g transform="translate(28, 100)">
+    <text x="0" y="12" fill="#e88938" font-size="10" font-weight="700" class="font-mono">CORE STACK</text>
+
+    <g transform="translate(0, 24)" font-size="10.5" class="font-mono">
+      <text x="0" y="0" fill="#626f84" font-weight="600">LANGUAGES :</text>
+      <text x="90" y="0" fill="#dedbd4">Python · C/C++ · Java · Dart · SQL</text>
+
+      <text x="0" y="17" fill="#626f84" font-weight="600">HARDWARE  :</text>
+      <text x="90" y="17" fill="#dedbd4">ESP32 · Raspberry Pi · Arduino · Sensors · BLE</text>
+
+      <text x="0" y="34" fill="#626f84" font-weight="600">ML &amp; APPS :</text>
+      <text x="90" y="34" fill="#dedbd4">TensorFlow · TFLite · Flutter · React · Node.js · Linux</text>
+    </g>
+  </g>
+
+  <!-- Divider 2 -->
+  <line x1="28" y1="168" x2="652" y2="168" stroke="#1c222e" stroke-width="1" />
+
+  <!-- ================================================================= -->
+  <!-- BOTTOM SECTION: BUILDS & EXPERIMENTS (CONTEXT) -->
+  <!-- ================================================================= -->
+  <g transform="translate(28, 184)">
+    <text x="0" y="12" fill="#4dabf7" font-size="10" font-weight="700" class="font-mono">BUILDS &amp; EXPERIMENTS</text>
+
+    <g transform="translate(0, 25)" font-size="10.5" class="font-mono">
+      <g transform="translate(0, 0)">
+        <text x="0" y="0" fill="#d08b49">⚡ Glance</text>
+        <text x="75" y="0" fill="#8b95a5">Smart-glasses ML detection + ESP32 ToF</text>
+
+        <text x="350" y="0" fill="#d08b49">🤖 Desk Robot</text>
+        <text x="445" y="0" fill="#8b95a5">Expressive OLED micro-eyes</text>
+      </g>
+
+      <g transform="translate(0, 18)">
+        <text x="0" y="0" fill="#d08b49">🪞 Mirror</text>
+        <text x="75" y="0" fill="#8b95a5">Linux/Pi vision <tspan fill="#e88938">[Top 20 IIT-B Techfest]</tspan></text>
+
+        <text x="350" y="0" fill="#d08b49">🗺️ City GIS</text>
+        <text x="445" y="0" fill="#8b95a5">Urban dark-zone safety engine</text>
+      </g>
+    </g>
+  </g>
+
+</svg>

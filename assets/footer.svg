@@ -1,0 +1,26 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 110" width="100%" height="100%">
+  <defs>
+    <linearGradient id="footerBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d1117" />
+      <stop offset="100%" stop-color="#161b22" />
+    </linearGradient>
+    <style>
+      @keyframes blink {
+        0%, 49% { opacity: 1; }
+        50%, 100% { opacity: 0; }
+      }
+      .cursor {
+        animation: blink 1.2s infinite;
+      }
+      .font-mono { font-family: ui-monospace, "Cascadia Code", Menlo, monospace; }
+    </style>
+  </defs>
+
+  <rect x="2" y="2" width="876" height="106" rx="12" fill="url(#footerBg)" stroke="#30363d" stroke-width="1.2" />
+
+  <text x="32" y="38" fill="#58a6ff" font-size="13" font-weight="600" class="font-mono">&gt; philosophy.txt</text>
+  <text x="32" y="64" fill="#f0f6fc" font-size="14" font-weight="500" class="font-mono">"I like making things — hardware, code, cuts, and ideas that feel alive."</text>
+  
+  <text x="32" y="90" fill="#8b949e" font-size="11" class="font-mono">reva-hattekar // end of stream</text>
+  <rect x="222" y="80" width="6" height="12" fill="#3fb950" class="cursor" />
+</svg>

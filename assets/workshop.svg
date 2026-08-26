@@ -1,0 +1,119 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 210" width="100%" height="100%">
+  <defs>
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0b0e14" />
+      <stop offset="100%" stop-color="#111622" />
+    </linearGradient>
+    <style>
+      @keyframes oledBlink {
+        0%, 90%, 100% { transform: scaleY(1); }
+        95% { transform: scaleY(0.1); }
+      }
+      @keyframes hudScan {
+        0%, 100% { transform: translateY(0px); opacity: 0.3; }
+        50% { transform: translateY(28px); opacity: 0.9; }
+      }
+      @keyframes radarSweepMini {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      @keyframes pulseDark {
+        0%, 100% { r: 3; opacity: 0.5; }
+        50% { r: 5; opacity: 1; filter: drop-shadow(0 0 3px #ff3366); }
+      }
+
+      .oled-eye { transform-origin: 75px 85px; animation: oledBlink 3.8s infinite; }
+      .hud-line { animation: hudScan 2.5s infinite ease-in-out; }
+      .radar-arm { transform-origin: 655px 85px; animation: radarSweepMini 4s linear infinite; }
+      .radar-dot { animation: pulseDark 2s infinite ease-in-out; }
+
+      .font-mono { font-family: "JetBrains Mono", "Fira Code", ui-monospace, Menlo, Consolas, monospace; }
+      .font-sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    </style>
+  </defs>
+
+  <!-- Base Grid Container -->
+  <rect x="2" y="2" width="876" height="206" rx="10" fill="url(#cardBg)" stroke="#222838" stroke-width="1.2" />
+
+  <!-- Column Separators -->
+  <line x1="298" y1="12" x2="298" y2="198" stroke="#1f2533" stroke-width="1" stroke-dasharray="3 3" />
+  <line x1="588" y1="12" x2="588" y2="198" stroke="#1f2533" stroke-width="1" stroke-dasharray="3 3" />
+
+  <!-- ==================== COLUMN 1: COMPANION ROBOT ==================== -->
+  <g transform="translate(16, 16)">
+    <!-- Header -->
+    <text x="6" y="14" fill="#ff3366" font-size="10" font-weight="700" class="font-mono">[01] ROBOTICS</text>
+    <text x="6" y="34" fill="#f0f6fc" font-size="15" font-weight="800" class="font-sans">Companion Robot</text>
+
+    <!-- Mini OLED Visual Box -->
+    <rect x="6" y="46" width="108" height="58" rx="8" fill="#040609" stroke="#30363d" stroke-width="1" />
+    <g class="oled-eye">
+      <rect x="28" y="66" width="18" height="18" rx="4" fill="#00f5d4" />
+      <rect x="62" y="66" width="18" height="18" rx="4" fill="#00f5d4" />
+    </g>
+    <text x="122" y="62" fill="#e6edf3" font-size="10" font-weight="600" class="font-mono">ESP32 Core</text>
+    <text x="122" y="78" fill="#8b949e" font-size="9.5" class="font-mono">I2C OLED UI</text>
+    <text x="122" y="94" fill="#8b949e" font-size="9.5" class="font-mono">IMU Sensors</text>
+
+    <!-- Bullets -->
+    <text x="6" y="124" fill="#8b949e" font-size="11" class="font-sans">Physical desk companion with custom</text>
+    <text x="6" y="140" fill="#8b949e" font-size="11" class="font-sans">circuitry, sensor suite, expressive OLED</text>
+    <text x="6" y="156" fill="#8b949e" font-size="11" class="font-sans">keyframe eyes, and tactile interaction.</text>
+
+    <rect x="6" y="168" width="145" height="16" rx="4" fill="#171d28" />
+    <text x="12" y="180" fill="#00f5d4" font-size="9" font-weight="600" class="font-mono">STATUS: ACTIVE PROTOTYPE</text>
+  </g>
+
+  <!-- ==================== COLUMN 2: SMART MIRROR ==================== -->
+  <g transform="translate(308, 16)">
+    <!-- Header -->
+    <text x="6" y="14" fill="#c77dff" font-size="10" font-weight="700" class="font-mono">[02] EMBEDDED SYSTEM</text>
+    <text x="6" y="34" fill="#f0f6fc" font-size="15" font-weight="800" class="font-sans">Smart Mirror</text>
+
+    <!-- Mini HUD Visual Box -->
+    <rect x="6" y="46" width="108" height="58" rx="8" fill="#040609" stroke="#30363d" stroke-width="1" />
+    <rect x="36" y="58" width="34" height="34" rx="3" fill="none" stroke="#c77dff" stroke-width="1" stroke-dasharray="4 2" />
+    <circle cx="53" cy="75" r="2.5" fill="#c77dff" />
+    <line x1="12" y1="56" x2="96" y2="56" stroke="#c77dff" stroke-width="1" class="hud-line" />
+    
+    <text x="122" y="62" fill="#e6edf3" font-size="10" font-weight="600" class="font-mono">Raspberry Pi</text>
+    <text x="122" y="78" fill="#8b949e" font-size="9.5" class="font-mono">Python / Vision</text>
+    <text x="122" y="94" fill="#8b949e" font-size="9.5" class="font-mono">Electron.js UI</text>
+
+    <!-- Bullets -->
+    <text x="6" y="124" fill="#8b949e" font-size="11" class="font-sans">Interactive Linux mirror with computer vision,</text>
+    <text x="6" y="140" fill="#8b949e" font-size="11" class="font-sans">facial recognition &amp; motion-triggered display.</text>
+    <text x="6" y="156" fill="#f0883e" font-size="10.5" font-weight="700" class="font-mono">★ TOP 20 · IIT BOMBAY TECHFEST</text>
+
+    <rect x="6" y="168" width="130" height="16" rx="4" fill="#171d28" />
+    <text x="12" y="180" fill="#c77dff" font-size="9" font-weight="600" class="font-mono">DEPLOYED · COMPLETED</text>
+  </g>
+
+  <!-- ==================== COLUMN 3: SMART CITY SAFETY ==================== -->
+  <g transform="translate(598, 16)">
+    <!-- Header -->
+    <text x="6" y="14" fill="#00bbf9" font-size="10" font-weight="700" class="font-mono">[03] GIS &amp; SPATIAL</text>
+    <text x="6" y="34" fill="#f0f6fc" font-size="15" font-weight="800" class="font-sans">Smart City Safety</text>
+
+    <!-- Mini Radar Visual Box -->
+    <rect x="6" y="46" width="108" height="58" rx="8" fill="#040609" stroke="#30363d" stroke-width="1" />
+    <circle cx="53" cy="75" r="22" fill="none" stroke="#1f2533" stroke-width="1" />
+    <circle cx="53" cy="75" r="12" fill="none" stroke="#1f2533" stroke-width="1" />
+    <circle cx="64" cy="67" r="3" fill="#ff3366" class="radar-dot" />
+    <g class="radar-arm">
+      <line x1="53" y1="75" x2="75" y2="75" stroke="#00bbf9" stroke-width="1.2" />
+    </g>
+
+    <text x="122" y="62" fill="#e6edf3" font-size="10" font-weight="600" class="font-mono">Flutter + React</text>
+    <text x="122" y="78" fill="#8b949e" font-size="9.5" class="font-mono">Risk Engine</text>
+    <text x="122" y="94" fill="#8b949e" font-size="9.5" class="font-mono">Dark-Zones</text>
+
+    <!-- Bullets -->
+    <text x="6" y="124" fill="#8b949e" font-size="11" class="font-sans">Spatial urban safety platform mapping dark-</text>
+    <text x="6" y="140" fill="#8b949e" font-size="11" class="font-sans">zones, lighting telemetry, pedestrian footfall</text>
+    <text x="6" y="156" fill="#8b949e" font-size="11" class="font-sans">gravity models &amp; crowd report triage.</text>
+
+    <rect x="6" y="168" width="138" height="16" rx="4" fill="#171d28" />
+    <text x="12" y="180" fill="#00bbf9" font-size="9" font-weight="600" class="font-mono">STATUS: CURRENT BUILD</text>
+  </g>
+</svg>

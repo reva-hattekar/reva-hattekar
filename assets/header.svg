@@ -1,0 +1,123 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 170" width="100%" height="100%">
+  <defs>
+    <!-- Deep Velvet Dark Background -->
+    <radialGradient id="deepVibe" cx="80%" cy="20%" r="90%">
+      <stop offset="0%" stop-color="#1f0f2b" />
+      <stop offset="45%" stop-color="#100a18" />
+      <stop offset="100%" stop-color="#07050a" />
+    </radialGradient>
+
+    <!-- Hot Magenta to Violet Glow Gradient -->
+    <linearGradient id="pinkViolet" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f72585" />
+      <stop offset="60%" stop-color="#b5179e" />
+      <stop offset="100%" stop-color="#7209b7" />
+    </linearGradient>
+
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <style>
+      @keyframes blink {
+        0%, 86%, 100% { transform: scaleY(1); }
+        92% { transform: scaleY(0.08); }
+      }
+      @keyframes glance {
+        0%, 35%, 100% { transform: translate(0px, 0px); }
+        45%, 65% { transform: translate(4px, 0px); }
+        75%, 90% { transform: translate(-4px, 0px); }
+      }
+      @keyframes sparklePulse {
+        0%, 100% { transform: scale(0.8) rotate(0deg); opacity: 0.5; }
+        50% { transform: scale(1.15) rotate(45deg); opacity: 1; filter: drop-shadow(0 0 5px #f72585); }
+      }
+      @keyframes statusPulse {
+        0%, 100% { opacity: 0.5; }
+        50% { opacity: 1; filter: drop-shadow(0 0 4px #f72585); }
+      }
+
+      .robo-eye-l {
+        transform-origin: 755px 75px;
+        animation: blink 4s infinite, glance 7.5s infinite ease-in-out;
+      }
+      .robo-eye-r {
+        transform-origin: 795px 75px;
+        animation: blink 4s infinite, glance 7.5s infinite ease-in-out;
+      }
+      .star-sparkle {
+        transform-origin: center;
+        animation: sparklePulse 3.5s infinite ease-in-out;
+      }
+      .pulse-dot {
+        animation: statusPulse 2s infinite ease-in-out;
+      }
+
+      .font-sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+      .font-mono { font-family: "JetBrains Mono", ui-monospace, Consolas, monospace; }
+      .font-serif { font-family: "Georgia", "Times New Roman", serif; font-style: italic; }
+    </style>
+  </defs>
+
+  <!-- Canvas -->
+  <rect x="1.5" y="1.5" width="877" height="167" rx="14" fill="url(#deepVibe)" stroke="#271838" stroke-width="1.2" />
+
+  <!-- Subtle Stardust Texture -->
+  <g fill="#ffffff" opacity="0.35">
+    <circle cx="120" cy="35" r="0.7" />
+    <circle cx="280" cy="22" r="1" />
+    <circle cx="450" cy="40" r="0.6" />
+    <circle cx="580" cy="18" r="0.8" />
+    <circle cx="640" cy="140" r="0.6" />
+    <circle cx="360" cy="150" r="0.7" />
+    <circle cx="160" cy="140" r="1.1" />
+    <circle cx="700" cy="30" r="0.7" />
+  </g>
+
+  <!-- 4-Point Star Sparkle in Upper Left -->
+  <g class="star-sparkle" transform="translate(38, 30)">
+    <path d="M 0 -8 L 1.8 -1.8 L 8 0 L 1.8 1.8 L 0 8 L -1.8 1.8 L -8 0 L -1.8 -1.8 Z" fill="#f72585" />
+  </g>
+
+  <!-- Left Content Block -->
+  <g transform="translate(42, 34)">
+    <!-- Subtitle Tag -->
+    <text x="14" y="0" fill="#f72585" font-size="10.5" font-weight="700" class="font-mono">PERSONAL INTERNET CORNER</text>
+
+    <!-- Name Heading -->
+    <text x="0" y="44" fill="#fdfbfe" font-size="42" font-weight="900" letter-spacing="-0.5" class="font-sans" filter="url(#softGlow)">Reva</text>
+    
+    <!-- Title -->
+    <text x="135" y="40" fill="#c77dff" font-size="14" font-weight="600" class="font-mono">student · developer · creative</text>
+
+    <!-- Short atmospheric line -->
+    <text x="0" y="78" fill="#a598ba" font-size="12.5" class="font-sans">Crafting embedded hardware, on-device ML, and late-night software experiments.</text>
+    <text x="0" y="98" fill="#6f5e87" font-size="11.5" class="font-mono">coding / video editing / physical things</text>
+  </g>
+
+  <!-- Right Side: Subtle Mascot RoboEyes OLED Module -->
+  <g transform="translate(710, 38)">
+    <!-- OLED Bezel -->
+    <rect x="0" y="0" width="130" height="72" rx="8" fill="#07040b" stroke="#311947" stroke-width="1.2" />
+    <text x="8" y="14" fill="#58397a" font-size="7" font-weight="600" class="font-mono">OLED // 128x64</text>
+    
+    <!-- RoboEyes (Warm Lavender / Magenta Glow) -->
+    <g transform="translate(0, 0)">
+      <rect class="robo-eye-l" x="30" y="22" width="26" height="30" rx="6" fill="#e0aaff" filter="url(#softGlow)" />
+      <rect class="robo-eye-r" x="72" y="22" width="26" height="30" rx="6" fill="#e0aaff" filter="url(#softGlow)" />
+    </g>
+
+    <text x="65" y="65" fill="#a06cd5" font-size="6.5" font-weight="600" text-anchor="middle" class="font-mono">robo_eyes.sys</text>
+
+    <!-- Status pill under OLED -->
+    <g transform="translate(0, 84)">
+      <circle cx="6" cy="6" r="3.5" fill="#f72585" class="pulse-dot" />
+      <text x="16" y="9" fill="#c77dff" font-size="10.5" font-weight="600" class="font-mono">in the workshop</text>
+    </g>
+  </g>
+
+</svg>

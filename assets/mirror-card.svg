@@ -1,0 +1,91 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 180" width="100%" height="100%">
+  <defs>
+    <linearGradient id="mirrorBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#121820" />
+      <stop offset="100%" stop-color="#0b0e14" />
+    </linearGradient>
+    <linearGradient id="hudGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a371f7" />
+      <stop offset="100%" stop-color="#79c0ff" />
+    </linearGradient>
+    <style>
+      @keyframes scanVert {
+        0%, 100% { transform: translateY(0px); opacity: 0.2; }
+        50% { transform: translateY(80px); opacity: 0.9; }
+      }
+      @keyframes targetPulse {
+        0%, 100% { transform: scale(1); opacity: 0.8; }
+        50% { transform: scale(1.06); opacity: 1; }
+      }
+      .scanner-line {
+        animation: scanVert 3.5s infinite ease-in-out;
+      }
+      .target-box {
+        transform-origin: 114px 90px;
+        animation: targetPulse 2s infinite ease-in-out;
+      }
+      .font-mono { font-family: ui-monospace, "Cascadia Code", Menlo, monospace; }
+      .font-sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    </style>
+  </defs>
+
+  <!-- Container Box -->
+  <rect x="2" y="2" width="876" height="176" rx="14" fill="url(#mirrorBg)" stroke="#263040" stroke-width="1.2" />
+
+  <!-- Left: Smart Mirror Glass & Interactive HUD Simulation -->
+  <rect x="26" y="24" width="176" height="130" rx="12" fill="#080c12" stroke="#374558" stroke-width="1.5" />
+  
+  <!-- Mirror UI Elements -->
+  <!-- Top Bar Widgets -->
+  <text x="36" y="42" fill="#bc8cff" font-size="9" font-weight="700" class="font-mono">07:42 AM</text>
+  <text x="156" y="42" fill="#79c0ff" font-size="9" font-weight="600" class="font-mono">24°C</text>
+  
+  <!-- Face Detection Target Box -->
+  <g class="target-box">
+    <rect x="84" y="60" width="60" height="60" rx="4" fill="none" stroke="#bc8cff" stroke-width="1.5" stroke-dasharray="8 6" />
+    <path d="M 80 68 L 80 56 L 92 56" fill="none" stroke="#79c0ff" stroke-width="2" />
+    <path d="M 148 68 L 148 56 L 136 56" fill="none" stroke="#79c0ff" stroke-width="2" />
+    <path d="M 80 112 L 80 124 L 92 124" fill="none" stroke="#79c0ff" stroke-width="2" />
+    <path d="M 148 112 L 148 124 L 136 124" fill="none" stroke="#79c0ff" stroke-width="2" />
+    <circle cx="114" cy="90" r="3" fill="#bc8cff" />
+    <text x="88" y="136" fill="#79c0ff" font-size="7.5" font-weight="600" class="font-mono">FACE_RECOG: OK</text>
+  </g>
+
+  <!-- Vertical Scanline -->
+  <line x1="30" y1="46" x2="198" y2="46" stroke="#bc8cff" stroke-width="1.5" class="scanner-line" />
+
+  <!-- Middle & Right: Project Narrative & Architecture -->
+  <g transform="translate(230, 24)">
+    <!-- Category & Accolade Badge -->
+    <rect x="0" y="0" width="70" height="22" rx="6" fill="#2d1c3a" stroke="#68398a" stroke-width="1" />
+    <text x="8" y="15" fill="#d2a8ff" font-size="11" font-weight="700" class="font-mono">SYSTEMS</text>
+    
+    <rect x="80" y="0" width="220" height="22" rx="6" fill="#3b2e16" stroke="#876822" stroke-width="1" />
+    <text x="88" y="15" fill="#f0883e" font-size="11" font-weight="700" class="font-mono">★ TOP 20 · IIT BOMBAY TECHFEST</text>
+
+    <!-- Title -->
+    <text x="0" y="48" fill="#f0f6fc" font-size="20" font-weight="700" class="font-sans">Smart Mirror</text>
+
+    <!-- Description -->
+    <text x="0" y="74" fill="#8b949e" font-size="13" class="font-sans">Raspberry Pi &amp; Linux-powered interactive two-way mirror integrating computer vision,</text>
+    <text x="0" y="93" fill="#8b949e" font-size="13" class="font-sans">motion-activated display layers, facial authentication, and modular desktop UI.</text>
+
+    <!-- Tech Pills -->
+    <g transform="translate(0, 110)">
+      <rect x="0" y="0" width="112" height="22" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1" />
+      <text x="10" y="15" fill="#e6edf3" font-size="11" class="font-mono">Raspberry Pi</text>
+
+      <rect x="120" y="0" width="60" height="22" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1" />
+      <text x="130" y="15" fill="#e6edf3" font-size="11" class="font-mono">Linux</text>
+
+      <rect x="188" y="0" width="70" height="22" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1" />
+      <text x="198" y="15" fill="#e6edf3" font-size="11" class="font-mono">Python</text>
+
+      <rect x="266" y="0" width="95" height="22" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1" />
+      <text x="276" y="15" fill="#e6edf3" font-size="11" class="font-mono">Electron.js</text>
+
+      <rect x="369" y="0" width="146" height="22" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1" />
+      <text x="379" y="15" fill="#e6edf3" font-size="11" class="font-mono">OpenCV / Vision</text>
+    </g>
+  </g>
+</svg>

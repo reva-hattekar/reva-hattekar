@@ -1,0 +1,137 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 200" width="100%" height="100%">
+  <defs>
+    <linearGradient id="matrixBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d1117" />
+      <stop offset="100%" stop-color="#161b22" />
+    </linearGradient>
+    <style>
+      .font-mono { font-family: ui-monospace, "Cascadia Code", Menlo, monospace; }
+      .font-sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      .cat-title { font-size: 11px; font-weight: 700; letter-spacing: 0.5px; }
+      .pill-text { font-size: 11px; font-weight: 500; }
+    </style>
+  </defs>
+
+  <!-- Base Grid Container -->
+  <rect x="2" y="2" width="876" height="196" rx="14" fill="url(#matrixBg)" stroke="#30363d" stroke-width="1.2" />
+
+  <!-- Grid Cells: 4 Columns -->
+
+  <!-- Column 1: Hardware & Embedded -->
+  <g transform="translate(20, 20)">
+    <rect x="0" y="0" width="198" height="158" rx="10" fill="#12161f" stroke="#21262d" stroke-width="1" />
+    <text x="14" y="26" fill="#f0883e" class="font-mono cat-title">⚡ HARDWARE &amp; SYSTEMS</text>
+    
+    <!-- Item Pills -->
+    <g transform="translate(14, 42)">
+      <rect x="0" y="0" width="76" height="22" rx="5" fill="#1b222d" stroke="#30363d" stroke-width="1" />
+      <text x="10" y="15" fill="#e6edf3" class="font-mono pill-text">ESP32</text>
+
+      <rect x="84" y="0" width="82" height="22" rx="5" fill="#1b222d" stroke="#30363d" stroke-width="1" />
+      <text x="10" y="15" fill="#e6edf3" class="font-mono pill-text">Raspberry Pi</text>
+    </g>
+
+    <g transform="translate(14, 70)">
+      <rect x="0" y="0" width="60" height="22" rx="5" fill="#1b222d" stroke="#30363d" stroke-width="1" />
+      <text x="10" y="15" fill="#e6edf3" class="font-mono pill-text">C / C++</text>
+
+      <rect x="68" y="0" width="58" height="22" rx="5" fill="#1b222d" stroke="#30363d" stroke-width="1" />
+      <text x="10" y="15" fill="#e6edf3" class="font-mono pill-text">Python</text>
+
+      <rect x="134" y="0" width="46" height="22" rx="5" fill="#1b222d" stroke="#30363d" stroke-width="1" />
+      <text x="8" y="15" fill="#e6edf3" class="font-mono pill-text">Linux</text>
+    </g>
+
+    <g transform="translate(14, 98)">
+      <rect x="0" y="0" width="168" height="22" rx="5" fill="#1b222d" stroke="#30363d" stroke-width="1" />
+      <text x="8" y="15" fill="#8b949e" class="font-mono pill-text">Sensors · I2C · BLE · ToF</text>
+    </g>
+  </g>
+
+  <!-- Column 2: Client & Interface -->
+  <g transform="translate(232, 20)">
+    <rect x="0" y="0" width="198" height="158" rx="10" fill="#12161f" stroke="#21262d" stroke-width="1" />
+    <text x="14" y="26" fill="#58a6ff" class="font-mono cat-title">📱 APPS &amp; FRONTEND</text>
+
+    <!-- Item Pills -->
+    <g transform="translate(14, 42)">
+      <rect x="0" y="0" width="94" height="22" rx="5" fill="#1b222d" stroke="#30363d" stroke-width="1" />
+      <text x="10" y="15" fill="#e6edf3" class="font-mono pill-text">Flutter / Dart</text>
+
+      <rect x="102" y="0" width="66" height="22" rx="5" fill="#1b222d" stroke="#30363d" stroke-width="1" />
+      <text x="10" y="15" fill="#e6edf3" class="font-mono pill-text">React</text>
+    </g>
+
+    <g transform="translate(14, 70)">
+      <rect x="0" y="0" width="84" height="22" rx="5" fill="#1b222d" stroke="#30363d" stroke-width="1" />
+      <text x="10" y="15" fill="#e6edf3" class="font-mono pill-text">TypeScript</text>
+
+      <rect x="92" y="0" width="76" height="22" rx="5" fill="#1b222d" stroke="#30363d" stroke-width="1" />
+      <text x="10" y="15" fill="#e6edf3" class="font-mono pill-text">Electron.js</text>
+    </g>
+
+    <g transform="translate(14, 98)">
+      <rect x="0" y="0" width="70" height="22" rx="5" fill="#1b222d" stroke="#30363d" stroke-width="1" />
+      <text x="8" y="15" fill="#8b949e" class="font-mono pill-text">Tailwind</text>
+
+      <rect x="78" y="0" width="90" height="22" rx="5" fill="#1b222d" stroke="#30363d" stroke-width="1" />
+      <text x="8" y="15" fill="#8b949e" class="font-mono pill-text">GSAP Motion</text>
+    </g>
+  </g>
+
+  <!-- Column 3: Backend & Data -->
+  <g transform="translate(444, 20)">
+    <rect x="0" y="0" width="198" height="158" rx="10" fill="#12161f" stroke="#21262d" stroke-width="1" />
+    <text x="14" y="26" fill="#7ee787" class="font-mono cat-title">🌐 BACKEND &amp; SPATIAL</text>
+
+    <!-- Item Pills -->
+    <g transform="translate(14, 42)">
+      <rect x="0" y="0" width="94" height="22" rx="5" fill="#1b222d" stroke="#30363d" stroke-width="1" />
+      <text x="10" y="15" fill="#e6edf3" class="font-mono pill-text">Node / Express</text>
+
+      <rect x="102" y="0" width="66" height="22" rx="5" fill="#1b222d" stroke="#30363d" stroke-width="1" />
+      <text x="10" y="15" fill="#e6edf3" class="font-mono pill-text">Firebase</text>
+    </g>
+
+    <g transform="translate(14, 70)">
+      <rect x="0" y="0" width="70" height="22" rx="5" fill="#1b222d" stroke="#30363d" stroke-width="1" />
+      <text x="10" y="15" fill="#e6edf3" class="font-mono pill-text">Firestore</text>
+
+      <rect x="78" y="0" width="48" height="22" rx="5" fill="#1b222d" stroke="#30363d" stroke-width="1" />
+      <text x="8" y="15" fill="#e6edf3" class="font-mono pill-text">SQL</text>
+
+      <rect x="134" y="0" width="40" height="22" rx="5" fill="#1b222d" stroke="#30363d" stroke-width="1" />
+      <text x="8" y="15" fill="#e6edf3" class="font-mono pill-text">GIS</text>
+    </g>
+
+    <g transform="translate(14, 98)">
+      <rect x="0" y="0" width="168" height="22" rx="5" fill="#1b222d" stroke="#30363d" stroke-width="1" />
+      <text x="8" y="15" fill="#8b949e" class="font-mono pill-text">Render · Vercel · Mapbox</text>
+    </g>
+  </g>
+
+  <!-- Column 4: Creative & Visual Craft -->
+  <g transform="translate(656, 20)">
+    <rect x="0" y="0" width="204" height="158" rx="10" fill="#12161f" stroke="#21262d" stroke-width="1" />
+    <text x="14" y="26" fill="#d2a8ff" class="font-mono cat-title">✦ CREATIVE CRAFT</text>
+
+    <!-- Item Pills -->
+    <g transform="translate(14, 42)">
+      <rect x="0" y="0" width="98" height="22" rx="5" fill="#1b222d" stroke="#30363d" stroke-width="1" />
+      <text x="10" y="15" fill="#e6edf3" class="font-mono pill-text">Video Editing</text>
+
+      <rect x="106" y="0" width="68" height="22" rx="5" fill="#1b222d" stroke="#30363d" stroke-width="1" />
+      <text x="8" y="15" fill="#e6edf3" class="font-mono pill-text">Dancing</text>
+    </g>
+
+    <g transform="translate(14, 70)">
+      <rect x="0" y="0" width="168" height="22" rx="5" fill="#1b222d" stroke="#30363d" stroke-width="1" />
+      <text x="8" y="15" fill="#e6edf3" class="font-mono pill-text">Visual Storytelling &amp; Cut</text>
+    </g>
+
+    <g transform="translate(14, 98)">
+      <rect x="0" y="0" width="168" height="22" rx="5" fill="#1b222d" stroke="#30363d" stroke-width="1" />
+      <text x="8" y="15" fill="#8b949e" class="font-mono pill-text">UI Motion &amp; Prototyping</text>
+    </g>
+  </g>
+</svg>

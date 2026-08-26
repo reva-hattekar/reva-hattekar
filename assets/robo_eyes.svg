@@ -1,0 +1,35 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 80" width="160" height="80">
+  <defs>
+    <style>
+      @keyframes blink {
+        0%, 85%, 100% { transform: scaleY(1); }
+        90% { transform: scaleY(0.08); }
+      }
+      @keyframes look {
+        0%, 35%, 100% { transform: translate(0px, 0px); }
+        45%, 65% { transform: translate(6px, 0px); }
+        75%, 90% { transform: translate(-6px, 0px); }
+      }
+      .oled-eye-l {
+        transform-origin: 56px 40px;
+        animation: blink 4s infinite, look 8s infinite ease-in-out;
+      }
+      .oled-eye-r {
+        transform-origin: 104px 40px;
+        animation: blink 4s infinite, look 8s infinite ease-in-out;
+      }
+    </style>
+  </defs>
+
+  <!-- OLED Screen Bezel -->
+  <rect x="2" y="2" width="156" height="76" rx="10" fill="#0d1117" stroke="#30363d" stroke-width="1.5" />
+  
+  <!-- Subtle screen glare line -->
+  <path d="M 6 12 L 140 12" stroke="#21262d" stroke-width="1" />
+
+  <!-- Left RoboEye -->
+  <rect class="oled-eye-l" x="42" y="25" width="28" height="30" rx="7" fill="#58a6ff" />
+
+  <!-- Right RoboEye -->
+  <rect class="oled-eye-r" x="90" y="25" width="28" height="30" rx="7" fill="#58a6ff" />
+</svg>
