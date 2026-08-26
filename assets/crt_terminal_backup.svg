@@ -409,7 +409,7 @@
 
     <!-- Header Block: Real Name & Bio -->
     <g transform="translate(0, 24)">
-      <text x="0" y="16" fill="#ffffff" font-size="22" font-weight="900" letter-spacing="-0.5" class="font-mono" filter="url(#crtBloom)">REVA HATTEKAR</text>
+      <text x="0" y="16" fill="#ffffff" font-size="22" font-weight="900" letter-spacing="-0.5" class="Arimo" filter="url(#crtBloom)">REVA HATTEKAR</text>
       <text x="180" y="14" fill="#e0aaff" font-size="10.5" font-weight="600" class="font-mono">student // developer // builder</text>
       <text x="0" y="32" fill="#b69fc9" font-size="9.5" class="font-mono">building things, learning things, and occasionally breaking things.</text>
     </g>
