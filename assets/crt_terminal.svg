@@ -415,16 +415,16 @@
       <text x="0" y="0" fill="#e0aaff" font-size="9.5" font-weight="800" class="font-mono">// PROJECTS</text>
 
       <g transform="translate(0, 13)" font-size="8.8" class="font-mono">
-        <text x="0" y="0" fill="#ff70a6">⚡ Glance     :</text>
+        <text x="0" y="0" fill="#ff70a6">❋ Glance     :</text>
         <text x="92" y="0" fill="#bea9d4">smart-glasses ML detection + ESP32 ToF laser node</text>
 
-        <text x="0" y="13" fill="#ff70a6">🤖 Desk Robot :</text>
+        <text x="0" y="13" fill="#ff70a6">❋ Desk Robot :</text>
         <text x="92" y="13" fill="#bea9d4">interactive companion w/ real-time expressive OLED eyes</text>
 
-        <text x="0" y="26" fill="#ff70a6">🪞 Smart Mirror:</text>
+        <text x="0" y="26" fill="#ff70a6">❋ Smart Mirror:</text>
         <text x="92" y="26" fill="#bea9d4">Linux vision HUD display <tspan fill="#f72585">[Top 20 IIT-B Techfest]</tspan></text>
 
-        <text x="0" y="39" fill="#ff70a6">🗺️ TARA (GIS) :</text>
+        <text x="0" y="39" fill="#ff70a6">❋ TARA (GIS) :</text>
         <text x="92" y="39" fill="#bea9d4">dynamic urban safety engine &amp; dark-zone routing</text>
       </g>
     </g>
