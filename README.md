@@ -1,16 +1,20 @@
-## Hi there 👋
+﻿<div align="center">
 
-<!--
-**reva-hattekar/reva-hattekar** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+<img src="assets/crt_terminal.svg" alt="Reva Hattekar // 2 AM CRT Workspace" width="100%" />
 
-Here are some ideas to get you started:
+</div>
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+<br/>
+
+### `// SELECTED PROJECTS`
+
+* ⚡ **[Glance](https://github.com/reva-hattekar/Glance)** — Smart-glasses ML detection + ESP32 BLE Time-of-Flight laser node
+* 🤖 **Companion Robot** — Interactive physical desk robot with custom embedded circuitry & expressive OLED keyframes
+* 🪞 **Smart Mirror** — Raspberry Pi & Linux vision display *(Top 20 at IIT Bombay Techfest 2020)*
+* 🗺️ **[TARA](https://github.com/reva-hattekar/TARA)** — Dynamic urban safety engine & spatial dark-zone infrastructure triage
+
+<br/>
+
+<div align="center">
+  <sub><code>reva@workspace:~$ building · experimenting · learning</code></sub>
+</div>
