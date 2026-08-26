@@ -391,7 +391,7 @@
     <!-- SECTION: // TECH STACK -->
     <g transform="translate(0, 80)">
       <text x="0" y="0" fill="#f72585" font-size="9.5" font-weight="800" class="font-mono">// TECH STACK</text>
-      <br>
+
       <g transform="translate(0, 13)" font-size="9" class="font-mono">
         <text x="0" y="0" fill="#755691" font-weight="700">LANGUAGES :</text>
         <text x="88" y="0" fill="#eae1f2"><tspan fill="#f72585">Python</tspan> · <tspan fill="#e0aaff">C / C++</tspan> · <tspan fill="#eae1f2">Java</tspan> · <tspan fill="#eae1f2">Dart</tspan> · <tspan fill="#eae1f2">SQL</tspan></text>
@@ -413,7 +413,7 @@
     <!-- SECTION: // 4 ORIGINAL CORE PROJECTS -->
     <g transform="translate(0, 160)">
       <text x="0" y="0" fill="#e0aaff" font-size="9.5" font-weight="800" class="font-mono">// PROJECTS</text>
-      <br>
+
       <g transform="translate(0, 13)" font-size="8.8" class="font-mono">
         <text x="0" y="0" fill="#ff70a6">❋ Glance     :</text>
         <text x="92" y="0" fill="#bea9d4">smart-glasses ML detection + ESP32 ToF laser node</text>
